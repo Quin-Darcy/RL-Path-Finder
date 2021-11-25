@@ -8,10 +8,17 @@ function setup() {
     colorMode(HSB, num_of_layers, 1, 1);
     set_agents();
 
-    let start_index = Math.floor(num_of_agents/2);
-    let end_index = start_index;
+    let start_index; let end_index;
+    if (RANDOM_ENDPOINTS === 1) {
+        start_index = round(random(0, num_of_agents-1));
+        end_index = round(random(0, num_of_agents-1));
+    } else {
+        start_index = Math.floor(num_of_agents/2);
+        end_index = start_index;
+    }
+
     agent0 = agents[0][start_index];
-    agent1 = agents[num_of_layers-1][start_index];
+    agent1 = agents[num_of_layers-1][end_index];
 }
 
 function draw() {
@@ -21,15 +28,13 @@ function draw() {
     agent0.make_path();
     agent0.show_path();
     get_path_len(agent0);
-    //agent0.reset_path();
+    textSize(16);
+    text(round(agent0.avg_path_len-w), W/2-16, H/16)
+
+    if (frameCount % (num_of_layers-2) === 0) {
+        agent0.reset_path();
+    }
 }
-
-
-
-
-
-
-
 
 //===============Peripheral Functions===============//
 
