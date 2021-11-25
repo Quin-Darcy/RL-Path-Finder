@@ -31,7 +31,6 @@ class Agent {
                     this.eps -= decay;
                 }
             }
-
             this.tail.make_path();
         } else {
             this.tail = agent1;
@@ -56,10 +55,10 @@ class Agent {
             stroke(this.layer, 1, 1);
             line(x1, y1, x2, y2);
 
-            noStroke();
+            /*noStroke();
             fill(num_of_layers, 0, 1);
             textSize(12);
-            text(round(this.avg_path_len), x1, y1+14);
+            text(round(this.avg_path_len), x1, y1+14);*/
 
             this.tail.show_path();
         }
