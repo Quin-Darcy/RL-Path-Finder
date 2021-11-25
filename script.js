@@ -20,7 +20,8 @@ function draw() {
 
     agent0.make_path();
     agent0.show_path();
-    agent0.reset_path();
+    get_path_len(agent0);
+    //agent0.reset_path();
 }
 
 
