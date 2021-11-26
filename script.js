@@ -6,9 +6,11 @@ function setup() {
 }
 
 function draw() {
-    background(0);
-    iter_num += 1;
+    if (DISPLAY === 1) {
+        background(0);
+    }
     
+    iter_num += 1;
     show_all_agents();
     
     avg_len = agent0.avg_path_len;
@@ -28,8 +30,4 @@ function draw() {
         initialize();
     }
 
-}
-
-function mouseClicked() {
-    noLoop();
 }
