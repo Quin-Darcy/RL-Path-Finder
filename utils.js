@@ -6,9 +6,11 @@ let Y_PAD = H/8;
 let w = W-2*X_PAD;
 let h = H-2*Y_PAD;
 let DIAG = Math.sqrt(w*w+h*h);
+let PLOT_PROGRESS = 1;
+let SHOW_CONFIDENCE = 0;
 
 // Environmental Constants
-let RANDOM_ENDPOINTS = 0;
+let RANDOM_ENDPOINTS = 1;
 let num_of_layers = 7;
 let num_of_agents = 7; // per layer
 let agents = [];
@@ -21,10 +23,10 @@ let iter_num;
 let progress;
 
 // Algorithm Constants
-let iters = 1000;
+let iters = 10000;
 let eps = 0.1;
 let EPSILON_DECAY = 0;
-let decay = 0.01;
+let decay = 0.0001;
 let ucb_coeff = 2;
 
 // Initialization functions
@@ -96,6 +98,7 @@ function update_progress() {
 }
 
 function plot_progress() {
+    update_progress();
     for (let i = 0; i < progress.length; i++) {
         noStroke();
         fill(num_of_layers/2, 0.4, 1);
