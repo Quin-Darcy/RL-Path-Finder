@@ -16,6 +16,8 @@ let make_up = 0.25;
 let RANDOM_ENDPOINTS = 1;
 let num_of_layers = 7;
 let num_of_agents = 7; // per layer
+let start_index; 
+let end_index;
 let agents = [];
 let agent0;
 let agent1;

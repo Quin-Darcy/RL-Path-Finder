@@ -24,7 +24,6 @@ function set_agents() {
 }
 
 function set_endpoints() {
-    let start_index; let end_index;
     if (RANDOM_ENDPOINTS === 1) {
         start_index = round(random(0, num_of_agents-1));
         end_index = round(random(0, num_of_agents-1));
