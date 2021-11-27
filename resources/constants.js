@@ -10,7 +10,9 @@ let PLOT_PROGRESS = 2;
 let SHOW_CONFIDENCE = 0;
 let DISPLAY = 1;
 let l_bound = 0.5;
-let make_up = 0.25;
+let u_bound = 1.5;
+let make_up = 0.15;
+let diameter = 7;
 
 // Environmental Constants
 let RANDOM_ENDPOINTS = 1;
@@ -31,5 +33,5 @@ let progress;
 let ALGORITHM = 1;
 let iters = 10000;
 let eps = 0.1;
-let EPSILON_DECAY = 0;
-let ucb_coeff = 2;
+let DECAY = 0;
+let lcb_coeff = 1;

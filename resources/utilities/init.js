@@ -18,7 +18,7 @@ function set_agents() {
         for (let j = 0; j < num_of_agents; j++) {
             x = i*layer_space+X_PAD;
             y = j*agent_space+Y_PAD;
-            agents[i][j] = new Agent(x, y, i, eps);
+            agents[i][j] = new Agent(x, y, i, eps, lcb_coeff);
         }
     }
 }

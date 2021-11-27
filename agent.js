@@ -1,8 +1,9 @@
 class Agent {
-    constructor(x, y, layer, eps) {
+    constructor(x, y, layer, epsilon, lcb) {
         this.head = createVector(x, y);
         this.layer = layer;
-        this.eps = eps;
+        this.eps = epsilon;
+        this.lcb_coeff = lcb;
 
         this.tail = null;
         this.count = 0;
@@ -16,7 +17,7 @@ class Agent {
     make_path() {
         this.count += 1;
         if (this.layer < num_of_layers-2) {
-            let index = choose_tail(this.layer+1, this.eps, this.count);
+            let index = choose_tail(this.layer+1, this.eps, this.lcb_coeff, this.count);
             this.tail = agents[this.layer+1][index];
             this.confidence = get_confidence(this.layer, this.count);
             this.confidence *= this.tail.confidence;
@@ -29,9 +30,9 @@ class Agent {
             this.avg_path_len += (this.path_len-this.avg_path_len)/this.count;
             this.path_len = dist(x1, y1, x2, y2);
 
-            if (this.eps-EPSILON_DECAY > 0) {
-                this.eps -= EPSILON_DECAY;
-            } 
+            if (this.eps-DECAY > 0) {
+                this.eps -= DECAY;
+            }
 
             this.tail.make_path();
         } else {
@@ -54,14 +55,24 @@ class Agent {
             let y1 = this.head.y;
             let x2 = this.tail.head.x;
             let y2 = this.tail.head.y;
+            let appearance;
 
             if (DISPLAY === 2) {
                 make_up = 0;
             } else {
                 make_up = 0.25;
             }
-            strokeWeight(this.confidence+make_up);
-            stroke(this.layer, 1, this.confidence+make_up);
+
+            if (this.confidence+make_up > u_bound) {
+                appearance = u_bound;
+            } else if (this.confidence+make_up < l_bound) {
+                appearance = l_bound;
+            } else {
+                appearance = this.confidence+make_up;
+            }
+
+            strokeWeight(appearance);
+            stroke(this.layer, 1, appearance);
             line(x1, y1, x2, y2);
 
             if (SHOW_CONFIDENCE === 1) {

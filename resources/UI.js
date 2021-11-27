@@ -1,4 +1,5 @@
 function reset() {
+    loop();
     W = window.innerWidth;
     H = window.innerHeight;
     createCanvas(W, H);
@@ -50,12 +51,12 @@ window.addEventListener('load', () => {
     });
 
     document.getElementById('decay').addEventListener('change', event => {
-        EPSILON_DECAY = parseFloat(event.target.value);;
+        DECAY = parseFloat(event.target.value);;
         //reset();
     });
 
     document.getElementById('ucb').addEventListener('change', event => {
-        ucb_coeff = parseFloat(event.target.value);;
+        lcb_coeff = parseFloat(event.target.value);;
         //reset();
     });
 
@@ -66,6 +67,10 @@ window.addEventListener('load', () => {
 
     document.getElementById('reset-button').addEventListener('click', () => {
         reset();
+    });
+
+    document.getElementById('stop-button').addEventListener('click', () => {
+        noLoop();
     });
 
 });

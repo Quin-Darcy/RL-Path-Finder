@@ -1,8 +1,8 @@
-function choose_tail(layer, epsilon, count) {
+function choose_tail(layer, epsilon, lcb, count) {
     if (ALGORITHM === 1) {
         return epsilon_greedy(layer, epsilon, count);
     } else if (ALGORITHM === 2) {
-        return upper_confidence_bound(layer, epsilon, count);
+        return lower_confidence_bound(layer, lcb, count);
     }
 }
 
@@ -51,6 +51,9 @@ function get_confidence(layer, count) {
         l_bound = 0.5;
     }
 
-    adjusted_confidence = map(dist_from_mean, min_dist, max_dist, l_bound, 1);
+    adjusted_confidence = map(dist_from_mean, min_dist, max_dist, l_bound, u_bound);
+    if (adjusted_confidence >= u_bound) {
+        adjusted_confidence = u_bound;
+    }
     return adjusted_confidence;
 }

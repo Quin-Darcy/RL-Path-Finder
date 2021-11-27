@@ -9,7 +9,7 @@ function show_all_agents() {
         for (let j = 0; j < num_of_agents; j++) {
             x = agents[i][j].head.x;
             y = agents[i][j].head.y;
-            ellipse(x, y, 6);
+            ellipse(x, y, diameter);
         }
     }
 }
