@@ -27,28 +27,13 @@
 
         <button id="info-button"><i class="dripicons dripicons-question"></i></button>
         <div id="info" class="hidden">
-            
+
             <div class="row">
                 <div class="column">
-                <select id="algo-select">
-                    <option value="">-Algorithm-</option>
-                    <option value="1">Epsilon-Greedy</option>
-                    <option value="2">Lower Confidence Bound</option>
-                </select>
+                    <button id="reset-button" style="font-family: 'Iceland', cursive;font-size:2vw;">Reset Animation</button>
                 </div>
                 <div class="column">
-                <select id="display-select">
-                    <option value="">-Display-</option>
-                    <option value="1">Real Time</option>
-                    <option value="2">Trace</option>
-                </select>
-                </div>
-                <div class="column">
-                <select id="progress-select">
-                    <option value="">-Plot-</option>
-                    <option value="1">On</option>
-                    <option value="2">Off</option>
-                </select>
+                    <button id="stop-button" style="font-family: 'Iceland', cursive;font-size:2vw;">Stop Animation</button>
                 </div>
             </div>
 
@@ -73,6 +58,18 @@
                 </div>
                 <div class="column">
                     <div class="special">
+                        <label for="scale" style="font-family: 'Iceland', cursive;font-size:2vw;">Iterations</label>
+                        <div class='slider-div'>
+                            <input type="range" id="iterations" name="scale" class="slider"
+                            min="100" max="100000" step="1" value="1000">
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="row">
+                <div class="column">
+                    <div class="special">
                         <label for="scale" style="font-family: 'Iceland', cursive;font-size:2vw;">Epsilon</label>
                         <div class='slider-div'>
                             <input type="range" id="epsilon" name="scale" class="slider"
@@ -80,9 +77,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
                 <div class="column">
                     <div class="special">
                         <label for="scale" style="font-family: 'Iceland', cursive;font-size:2vw;">Decay</label>
@@ -101,22 +95,29 @@
                         </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="special">
-                        <label for="scale" style="font-family: 'Iceland', cursive;font-size:2vw;">Iterations</label>
-                        <div class='slider-div'>
-                            <input type="range" id="iterations" name="scale" class="slider"
-                            min="100" max="100000" step="1" value="1000">
-                        </div>
-                    </div>
-                </div>
             </div>
+
             <div class="row">
                 <div class="column">
-                    <button id="reset-button" style="font-family: 'Iceland', cursive;font-size:2vw;">Reset Animation</button>
+                    <select id="algo-select">
+                        <option value="">-Algorithm-</option>
+                        <option value="1">Epsilon-Greedy</option>
+                        <option value="2">Lower Confidence Bound</option>
+                    </select>
                 </div>
                 <div class="column">
-                    <button id="stop-button" style="font-family: 'Iceland', cursive;font-size:2vw;">Stop Animation</button>
+                    <select id="display-select">
+                        <option value="">-Display-</option>
+                        <option value="1">Real Time</option>
+                        <option value="2">Trace</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <select id="progress-select">
+                        <option value="">-Plot-</option>
+                        <option value="1">On</option>
+                        <option value="2">Off</option>
+                    </select>
                 </div>
             </div>
         </div>
