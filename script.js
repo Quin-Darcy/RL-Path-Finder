@@ -29,5 +29,4 @@ function draw() {
         background(0);
         initialize();
     }
-
 }

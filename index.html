@@ -27,53 +27,98 @@
 
         <button id="info-button"><i class="dripicons dripicons-question"></i></button>
         <div id="info" class="hidden">
-            <select id="algo-select">
-                <option value="">-Algorithm-</option>
-                <option value="1">Epsilon-Greedy</option>
-                <option value="2">Lower Confidence Bound</option>
-            </select>
-            <select id="display-select">
-                <option value="">-Display-</option>
-                <option value="1">Real Time</option>
-                <option value="2">Trace</option>
-            </select>
-            <select id="progress-select">
-                <option value="">-Progress Plot-</option>
-                <option value="1">On</option>
-                <option value="2">Off</option>
-            </select>
-            <div class='slider-div'>
-                <label for="scale" style="font-family: 'Iceland', cursive;font-size:30px;">Layers</label>
-                <input type="range" id="layers" name="scale" class="slider"
-                min="3" max="20" step="1" value="8">
+            
+            <div class="row">
+                <div class="column">
+                <select id="algo-select">
+                    <option value="">-Algorithm-</option>
+                    <option value="1">Epsilon-Greedy</option>
+                    <option value="2">Lower Confidence Bound</option>
+                </select>
+                </div>
+                <div class="column">
+                <select id="display-select">
+                    <option value="">-Display-</option>
+                    <option value="1">Real Time</option>
+                    <option value="2">Trace</option>
+                </select>
+                </div>
+                <div class="column">
+                <select id="progress-select">
+                    <option value="">-Plot-</option>
+                    <option value="1">On</option>
+                    <option value="2">Off</option>
+                </select>
+                </div>
             </div>
-            <div class='slider-div'>
-                <label for="scale" style="font-family: 'Iceland', cursive;font-size:30px;">Agents</label>
-                <input type="range" id="agents" name="scale" class="slider"
-                min="3" max="20" step="1" value="8">
+
+            <div class="row">
+                <div class="column">
+                    <div class="special">
+                        <label for="scale" style="font-family: 'Iceland', cursive;font-size:2vw;">Layers</label>
+                        <div class='slider-div'>
+                            <input type="range" id="layers" name="scale" class="slider"
+                            min="3" max="20" step="1" value="8">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="special">
+                        <label for="scale" style="font-family: 'Iceland', cursive;font-size:2vw;">Agents</label>
+                        <div class='slider-div'>
+                            <input type="range" id="agents" name="scale" class="slider"
+                            min="3" max="20" step="1" value="8">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="special">
+                        <label for="scale" style="font-family: 'Iceland', cursive;font-size:2vw;">Epsilon</label>
+                        <div class='slider-div'>
+                            <input type="range" id="epsilon" name="scale" class="slider"
+                            min="0.0001" max="1" step="0.00001" value="0.1">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class='slider-div'>
-                <label for="scale" style="font-family: 'Iceland', cursive;font-size:30px;">Epsilon</label>
-                <input type="range" id="epsilon" name="scale" class="slider"
-                min="0.0001" max="1" step="0.00001" value="0.1">
+
+            <div class="row">
+                <div class="column">
+                    <div class="special">
+                        <label for="scale" style="font-family: 'Iceland', cursive;font-size:2vw;">Decay</label>
+                        <div class='slider-div'>
+                            <input type="range" id="decay" name="scale" class="slider"
+                            min="0" max="0.5" step="0.000001" value="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="special">
+                        <label for="scale" style="font-family: 'Iceland', cursive;font-size:2vw;">LCB Coefficient</label>
+                        <div class='slider-div'>
+                            <input type="range" id="ucb" name="scale" class="slider"
+                            min="0.00001" max="2" step="0.000001" value="0.1">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="special">
+                        <label for="scale" style="font-family: 'Iceland', cursive;font-size:2vw;">Iterations</label>
+                        <div class='slider-div'>
+                            <input type="range" id="iterations" name="scale" class="slider"
+                            min="100" max="100000" step="1" value="1000">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class='slider-div'>
-                <label for="scale" style="font-family: 'Iceland', cursive;font-size:30px;">Decay</label>
-                <input type="range" id="decay" name="scale" class="slider"
-                min="0" max="0.5" step="0.000001" value="0">
+            <div class="row">
+                <div class="column">
+                    <button id="reset-button" style="font-family: 'Iceland', cursive;font-size:2vw;">Reset Animation</button>
+                </div>
+                <div class="column">
+                    <button id="stop-button" style="font-family: 'Iceland', cursive;font-size:2vw;">Stop Animation</button>
+                </div>
             </div>
-            <div class='slider-div'>
-                <label for="scale" style="font-family: 'Iceland', cursive;font-size:30px;">LCB Coefficient</label>
-                <input type="range" id="ucb" name="scale" class="slider"
-                min="0.00001" max="2" step="0.000001" value="0.1">
-            </div>
-            <div class='slider-div'>
-                <label for="scale" style="font-family: 'Iceland', cursive;font-size:30px;">Iterations</label>
-                <input type="range" id="iterations" name="scale" class="slider"
-                min="100" max="100000" step="1" value="1000">
-            </div>
-            <button id="reset-button" style="font-family: 'Iceland', cursive;">Reset Animation</button>
-            <button id="stop-button" style="font-family: 'Iceland', cursive;">Stop Animation</button>
         </div>
     </body>
 </html>

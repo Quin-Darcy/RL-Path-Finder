@@ -66,12 +66,12 @@ window.addEventListener('load', () => {
         //reset();
     });
 
-    document.getElementById('reset-button').addEventListener('click', () => {
+    /*document.getElementById('reset-button').addEventListener('click', () => {
         reset();
     });
 
     document.getElementById('stop-button').addEventListener('click', () => {
         noLoop();
-    });
+    });*/
 
 });

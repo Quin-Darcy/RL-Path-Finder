@@ -7,7 +7,7 @@ function show_all_agents() {
 
     let x; let y;
     for (let i = 0; i < num_of_layers; i++) {
-        // Axis values
+        // x-axis values
         if (PLOT_PROGRESS === 1) {
             noStroke();
             fill(num_of_layers/2, 0.4, 1);
@@ -17,9 +17,20 @@ function show_all_agents() {
         noFill();
         stroke(i, 1, 1);
         for (let j = 0; j < num_of_agents; j++) {
+            noFill();
+            stroke(i, 1, 1);
             x = agents[i][j].head.x;
             y = agents[i][j].head.y;
             ellipse(x, y, diameter);
+
+            // y-axis values
+            if (PLOT_PROGRESS === 1) {
+                if (i === 0) {
+                    noStroke();
+                    fill(num_of_layers/2, 0.4, 1);
+                    text(round((1-j/(num_of_agents-1))*100)+'%', X_PAD-48, j*agent_space+Y_PAD+5);
+                }
+            }
         }
     }
 }
