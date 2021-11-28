@@ -57,3 +57,29 @@ function get_confidence(layer, count) {
     }
     return adjusted_confidence;
 }
+
+function show_segment(layer, head, tail, confidence) {
+        let x1 = head.x;
+        let y1 = head.y;
+        let x2 = tail.head.x;
+        let y2 = tail.head.y;
+        let appearance;
+
+        if (DISPLAY === 2) {
+            make_up = 0;
+        } else {
+            make_up = 0.25;
+        }
+
+        if (confidence+make_up > u_bound) {
+            appearance = u_bound;
+        } else if (confidence+make_up < l_bound) {
+            appearance = l_bound;
+        } else {
+            appearance = confidence+make_up;
+        }
+
+        strokeWeight(appearance);
+        stroke(layer, 1, appearance);
+        line(x1, y1, x2, y2);
+}

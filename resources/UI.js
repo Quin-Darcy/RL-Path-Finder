@@ -22,7 +22,8 @@ window.addEventListener('load', () => {
 
     document.getElementById('algo-select').addEventListener('change', event => {
         ALGORITHM = parseInt(event.target.value);
-        //reset();
+        eps = 0.1;
+        DECAY = 0;
     });
 
     document.getElementById('display-select').addEventListener('change', event => {

@@ -31,7 +31,8 @@ let progress;
 
 // Algorithm Constants
 let ALGORITHM = 1;
-let iters = 10000;
+let iters = 1000;
 let eps = 0.1;
 let DECAY = 0;
-let lcb_coeff = 1;
+let LCB_DECAY = 0.001;
+let lcb_coeff = 0.1;

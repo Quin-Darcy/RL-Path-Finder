@@ -43,7 +43,7 @@ function lower_confidence_bound(layer, lcb, count) {
     let index = 0;
     if (layer === num_of_layers - 2) {
         index = epsilon_greedy(layer, 0.05, count);
-        DECAY = 0.001
+        DECAY = 0.001;
     } else {
         let avgs = get_path_averages(layer);
 

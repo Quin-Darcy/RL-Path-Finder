@@ -3,7 +3,7 @@ class Agent {
         this.head = createVector(x, y);
         this.layer = layer;
         this.eps = epsilon;
-        this.lcb_coeff = lcb;
+        this.lcb_coeff = lcb * (1-layer/num_of_layers);
 
         this.tail = null;
         this.count = 0;
@@ -51,37 +51,7 @@ class Agent {
     }
     show_path() {
         if (this.tail && this.layer < num_of_layers-1) {
-            let x1 = this.head.x;
-            let y1 = this.head.y;
-            let x2 = this.tail.head.x;
-            let y2 = this.tail.head.y;
-            let appearance;
-
-            if (DISPLAY === 2) {
-                make_up = 0;
-            } else {
-                make_up = 0.25;
-            }
-
-            if (this.confidence+make_up > u_bound) {
-                appearance = u_bound;
-            } else if (this.confidence+make_up < l_bound) {
-                appearance = l_bound;
-            } else {
-                appearance = this.confidence+make_up;
-            }
-
-            strokeWeight(appearance);
-            stroke(this.layer, 1, appearance);
-            line(x1, y1, x2, y2);
-
-            if (SHOW_CONFIDENCE === 1) {
-                noStroke();
-                fill(num_of_layers, 0, 1);
-                textSize(12);
-                text(round(this.confidence, 2), x1, y1+14);
-            }
-
+            show_segment(this.layer, this.head, this.tail, this.confidence);
             this.tail.show_path();
         }
     }
