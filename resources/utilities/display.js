@@ -11,7 +11,7 @@ function show_all_agents() {
         if (PLOT_PROGRESS === 1) {
             noStroke();
             fill(num_of_layers/2, 0.4, 1);
-            text(Math.floor(iters/num_of_layers)*i, i*layer_space+X_PAD-4, H-Y_PAD+24);
+            text(Math.floor(iters/num_of_layers)*i, i*layer_space+X_PAD-4, H-Y_PAD+H/20);
         }
 
         noFill();
@@ -28,7 +28,8 @@ function show_all_agents() {
                 if (i === 0) {
                     noStroke();
                     fill(num_of_layers/2, 0.4, 1);
-                    text(round((1-j/(num_of_agents-1))*100)+'%', X_PAD-48, j*agent_space+Y_PAD+5);
+                    textSize(text_size);
+                    text(round((1-j/(num_of_agents-1))*100)+'%', X_PAD-W/20, j*agent_space+Y_PAD+5);
                 }
             }
         }

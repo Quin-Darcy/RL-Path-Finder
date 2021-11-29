@@ -1,5 +1,4 @@
 function reset() {
-    loop();
     W = window.innerWidth;
     H = window.innerHeight;
     createCanvas(W, H);
@@ -9,11 +8,9 @@ function reset() {
     draw();
 }
 
-window.addEventListener("resize", onResize);
-
-function onResize() {
+window.addEventListener("resize", function() {
     reset();
-}
+}, false);
 
 window.addEventListener('load', () => {
     document.getElementById('info-button').addEventListener('click', () => {
@@ -63,7 +60,7 @@ window.addEventListener('load', () => {
 
     document.getElementById('iterations').addEventListener('change', event => {
         iters = parseFloat(event.target.value);;
-        //reset();
+        reset();
     });
 
     document.getElementById('reset-button').addEventListener('click', () => {

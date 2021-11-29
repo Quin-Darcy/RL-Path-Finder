@@ -80,6 +80,6 @@ function show_segment(layer, head, tail, confidence) {
         }
 
         strokeWeight(appearance);
-        stroke(layer, 1, appearance);
+        stroke(num_of_layers-layer-1, 1, appearance);
         line(x1, y1, x2, y2);
 }

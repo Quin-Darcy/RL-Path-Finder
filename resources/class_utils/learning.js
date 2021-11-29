@@ -43,14 +43,14 @@ function lower_confidence_bound(layer, lcb, count) {
     let index = 0;
     if (layer === num_of_layers - 2) {
         index = epsilon_greedy(layer, 0.05, count);
-        DECAY = 0.001;
+        DECAY = 10/iters;
     } else {
         let avgs = get_path_averages(layer);
 
         for (let i = 0; i < num_of_agents; i++) {
             if (agents[layer][i].count > 0) {
                 avgs[i] = avgs[i] / max_len;
-                avgs[i] -= lcb*Math.sqrt(Math.log(frameCount) / agents[layer][i].count);
+                avgs[i] -= lcb*Math.sqrt(2*Math.log(frameCount) / agents[layer][i].count);
             } else {
                 avgs[i] = -1;
             }

@@ -1,8 +1,8 @@
 // Display
 let W = window.innerWidth;
 let H = window.innerHeight;
-let X_PAD = W/8;
-let Y_PAD = H/8;
+let X_PAD = W/12;
+let Y_PAD = H/12;
 let w = W-2*X_PAD;
 let h = H-2*Y_PAD;
 let DIAG = Math.sqrt(w*w+h*h);
@@ -12,7 +12,8 @@ let DISPLAY = 1;
 let l_bound = 0.5;
 let u_bound = 1.5;
 let make_up = 0.15;
-let diameter = 7;
+let diameter = DIAG/200;
+let text_size = DIAG/80;
 
 // Environmental Constants
 let RANDOM_ENDPOINTS = 1;
@@ -26,7 +27,7 @@ let agent1;
 let min_len;
 let max_len;
 let avg_len;
-let iter_num;
+let iter_num = 0;
 let progress;
 
 // Algorithm Constants
